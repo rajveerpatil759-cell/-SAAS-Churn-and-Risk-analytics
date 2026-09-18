@@ -289,7 +289,7 @@ CALCULATE(
 ### Page 1 — SaaS Churn Overview
 **Business Question:** How bad is churn, and where does it concentrate?
 
-![Page 1 - Overview](https://github.com/rajveerpatil759-cell/-SAAS-Churn-and-Risk-analytics/blob/main/screenshots/dashboard/Account%20Explorer.png)
+![Page 1 - Overview](https://github.com/rajveerpatil759-cell/-SAAS-Churn-and-Risk-analytics/blob/main/screenshots/dashboard/SaaS%20Churn%20Overview.png)
 
 **KPIs:** Total Accounts, Churned Accounts, Churn Rate %, MRR at Risk %
 
