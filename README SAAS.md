@@ -1,17 +1,17 @@
-# 📉 SaaS Churn & Risk Analysis — End-to-End Business Intelligence Project
+#  SaaS Churn & Risk Analysis — End-to-End Business Intelligence Project
 
 > A complete data analytics project covering Python data engineering, SQL analysis, machine learning, and Power BI dashboard development on a synthetic B2B SaaS customer dataset.
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 **Project Title:** SaaS Customer Churn & Risk Analysis (RavenStack)
 **Tools:** Python (pandas, scikit-learn) · SQL (PostgreSQL) · Power BI · DAX
 
 ---
 
-## 📋 Problem Statement
+##  Problem Statement
 
 A SaaS company wants to understand why customers churn, which customer segments are most at risk, and what business factors are associated with customer churn. Without a clear view of *why* accounts leave — as opposed to just *how many* — retention effort gets spread evenly across the customer base instead of concentrated where it would actually move the needle. This project analyzes subscription, usage, and support data to identify real churn drivers, separate them from plausible-sounding factors that don't actually hold up, and quantify the revenue at risk — answering the chain:
 
@@ -22,7 +22,7 @@ A SaaS company wants to understand why customers churn, which customer segments 
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```
 ravenstack-churn-analysis/
@@ -58,7 +58,7 @@ ravenstack-churn-analysis/
 
 ---
 
-## 📊 Dataset Overview
+##  Dataset Overview
 
 | Metric | Value |
 |--------|-------|
@@ -81,7 +81,7 @@ ravenstack-churn-analysis/
 
 ---
 
-## 🗺️ Entity Relationship Diagram (ERD)
+##  Entity Relationship Diagram (ERD)
 
 ```mermaid
 erDiagram
@@ -148,7 +148,7 @@ erDiagram
 
 ---
 
-## 🐍 Step 1 — Python: Data Loading, Cleaning & Deduplication
+##  Step 1 — Python: Data Loading, Cleaning & Deduplication
 
 **File:** `notebooks/SAAS_data_loading.ipynb`
 
@@ -174,11 +174,11 @@ Standardize Text Columns → Final Cleaning Audit → Push to PostgreSQL
 
 ---
 
-## 🗄️ Step 2 — SQL: Feature Engineering & Business Questions
+##  Step 2 — SQL: Feature Engineering & Business Questions
 
 **Files:** `sql/SAAS_feature_engineering.sql`, `sql/SAAS_Business_Questions.sql`
 
-### ⚠️ Two Data Leakage Bugs Found and Fixed
+###  Two Data Leakage Bugs Found and Fixed
 
 Building `account_level_features` (the ML-ready, one-row-per-account table) surfaced two separate leakage issues — worth documenting since catching these was a bigger part of this project than the modeling itself:
 
@@ -227,7 +227,7 @@ END AS customer_tenure_days
 
 ---
 
-## 🐍 Step 3 — Python: Exploratory Analysis & Machine Learning
+##  Step 3 — Python: Exploratory Analysis & Machine Learning
 
 **Files:** `notebooks/SAAS_Python_EDA.ipynb`, `notebooks/saas_Ml.ipynb`
 
@@ -249,7 +249,7 @@ Reported as an honest ceiling, not an inflated one — the pre-leakage-fix versi
 
 ---
 
-## 📊 Step 4 — Power BI: Interactive Dashboard
+##  Step 4 — Power BI: Interactive Dashboard
 
 **File:** `dashboard/raven_churn_dashboard.pbix`
 
@@ -289,7 +289,7 @@ CALCULATE(
 ### Page 1 — SaaS Churn Overview
 **Business Question:** How bad is churn, and where does it concentrate?
 
-![Page 1 - Overview](screenshots/page1_overview.png)
+![Page 1 - Overview](https://github.com/rajveerpatil759-cell/-SAAS-Churn-and-Risk-analytics/blob/main/screenshots/dashboard/Account%20Explorer.png)
 
 **KPIs:** Total Accounts, Churned Accounts, Churn Rate %, MRR at Risk %
 
@@ -302,7 +302,7 @@ CALCULATE(
 ### Page 2 — Churn Risk Drivers
 **Business Question:** Why are customers leaving, and who is most likely to leave?
 
-![Page 2 - Churn Risk Drivers](screenshots/page2_churn_drivers.png)
+![Page 2 - Churn Risk Drivers](https://github.com/rajveerpatil759-cell/-SAAS-Churn-and-Risk-analytics/blob/main/screenshots/dashboard/Churn%20risk%20drivers.png)
 
 **Key Visuals:**
 - Churn rate by tenure group — U-shaped: 35.2% (0–3mo) → 17.4% → 13.5% (lowest) → 21.4% (12+mo)
@@ -316,7 +316,7 @@ CALCULATE(
 ### Page 3 — Revenue Impact
 **Business Question:** Where does churn hurt the business financially?
 
-![Page 3 - Revenue Impact](screenshots/page3_revenue_impact.png)
+![Page 3 - Revenue Impact](https://github.com/rajveerpatil759-cell/-SAAS-Churn-and-Risk-analytics/blob/main/screenshots/dashboard/Revenue%20Impact.png)
 
 **Key Visuals:**
 - Churned MRR by industry
@@ -328,7 +328,7 @@ CALCULATE(
 ### Page 4 — Account Explorer
 **Business Question:** Can any claim on the other three pages be verified directly against the data?
 
-![Page 4 - Account Explorer](screenshots/page4_account_explorer.png)
+![Page 4 - Account Explorer](https://github.com/rajveerpatil759-cell/-SAAS-Churn-and-Risk-analytics/blob/main/screenshots/dashboard/Account%20Explorer.png)
 
 **Key Visuals:**
 - Five slicers (industry, referral source, tenure group, plan tier, churn status)
@@ -336,7 +336,7 @@ CALCULATE(
 
 ---
 
-## 🔑 Key Business Insights
+##  Key Business Insights
 
 ### 1. Tenure is the strongest churn driver — and it isn't a straight line
 - 0–3 month accounts churn at **35.2%** — the highest-risk window
@@ -361,7 +361,7 @@ CALCULATE(
 
 ---
 
-## ✅ Recommended Actions
+##  Recommended Actions
 
 | Segment | Action | Basis |
 |---|---|---|
@@ -376,7 +376,7 @@ Two of these are deliberately "stop doing X" rather than "do X" — a common Saa
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 ### Python
 1. Install dependencies:
@@ -398,22 +398,21 @@ CREATE DATABASE saas;
 
 ### Power BI
 1. Download Power BI Desktop (free) from microsoft.com
-2. Open `dashboard/raven_churn_dashboard.pbix`
+2. Open `dashboard/SAAS_dashboard.pbix`
 3. Update the data source connection to your local PostgreSQL instance
 4. Refresh data — all visuals and DAX measures load automatically
 
 ---
 
-## 👤 Author
+##  Author
 
 **Rajveer**
-- 📧 [your email]
-- 💼 [your LinkedIn]
-- 🐙 [your GitHub]
+- [rajveerpatil759@gmail.com]
+- [LinkedIn](https://www.linkedin.com/in/rajveerpatil019)
 
 ---
 
-## 📄 License
+##  License
 
 This project is for portfolio and educational purposes.
 Data source: RavenStack (synthetic SaaS customer dataset).
